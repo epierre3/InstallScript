@@ -252,11 +252,6 @@ sudo chown root: /etc/init.d/$OE_CONFIG
 echo -e "* Start ODOO on Startup"
 sudo update-rc.d $OE_CONFIG defaults
 
-echo -e "\n---- Installing NGINX, hide Odoo listens on port, install reverse proxy ----"
-sudo apt install nginx -y
-
-sudo apt-get update && sudo apt-get upgrade -y
-
 echo -e "* Starting Odoo Service"
 sudo su root -c "/etc/init.d/$OE_CONFIG start"
 echo "-----------------------------------------------------------"
@@ -270,6 +265,3 @@ echo "Start Odoo service: sudo service $OE_CONFIG start"
 echo "Stop Odoo service: sudo service $OE_CONFIG stop"
 echo "Restart Odoo service: sudo service $OE_CONFIG restart"
 echo "-----------------------------------------------------------"
-echo "NGINX file needs to be configured, when website Odoo will be used."
-echo "Configure file: /etc/nginx/sites-available/default"
-echo "Data to be added can be pick-up from file "ConfigDataNGNIX"
