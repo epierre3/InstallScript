@@ -11,6 +11,8 @@ This script can be safely used in a multi-odoo code base server because the defa
 sudo wget https://raw.githubusercontent.com/Yenthe666/InstallScript/12.0/odoo_install.sh
 ```
 ##### 2. Modify the parameters as you wish.
+sudo nano odoo_install.sh
+
 There are a few things you can configure, this is the most used list:<br/>
 ```OE_USER``` will be the username for the system user.<br/>
 ```INSTALL_WKHTMLTOPDF``` set to ```False``` if you do not want to install Wkhtmltopdf, if you want to install it you should set it to ```True```.<br/>
