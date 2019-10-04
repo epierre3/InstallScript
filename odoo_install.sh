@@ -76,16 +76,16 @@ sudo apt-get install nodejs npm
 sudo npm install -g rtlcss
 
 echo -e "\n---- Installing pysftp, required for Auto-Backup ----"
-sudo apt install pysftp
+sudo apt install pysftp -y
 
 echo -e "\n---- Installing python3-xlsxwriter, required for some modules ----"
-sudo apt install python3-xlsxwriter
+sudo apt install python3-xlsxwriter -y
 
 echo -e "\n---- Installing python3-xlrd, required for some modules ----"
-sudo apt install python3-xlrd
+sudo apt install python3-xlrd -y
 
 echo -e "\n---- Installing python library unidecode, required for some modules ----"
-sudo apt install python3-unidecode
+sudo apt install python3-unidecode -y
 
 #--------------------------------------------------
 # Install Wkhtmltopdf if needed
@@ -252,6 +252,26 @@ sudo chown root: /etc/init.d/$OE_CONFIG
 
 echo -e "* Start ODOO on Startup"
 sudo update-rc.d $OE_CONFIG defaults
+
+echo -e "\n---- Installing NGINX, hide Odoo listens on port, install reverse proxy ----"
+sudo apt install nginx -y
+
+# Configurations need to be added automatically in file: /etc/nginx/sites-available/default
+# to be added (under construction)
+
+sudo apt-get update
+sudo apt-get upgrade -y
+
+
+echo -e "\n---- Securing web server----"
+# Tob be checked if formule can be optimized
+# sudo apt-get install software-properties-common -y
+# sudo add-apt-repository universe -y
+# sudo add-apt-repository ppa:certbot/certbot -y
+# sudo apt-get update
+# sudo apt-get upgrade -y
+# sudo apt-get install certbot python-certbot-nginx -y
+
 
 echo -e "* Starting Odoo Service"
 sudo su root -c "/etc/init.d/$OE_CONFIG start"
