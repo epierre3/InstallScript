@@ -21,7 +21,7 @@ There are a few things you can configure, this is the most used list:<br/>
 ```IS_ENTERPRISE``` will install the Enterprise version on top of ```12.0``` if you set it to ```True```, set it to ```False``` if you want the community version of Odoo 12.<br/>
 ```OE_SUPERADMIN``` is the master password for this Odoo installation.<br/>
 
-#### 3. Make the script executable
+##### 3. Make the script executable
 ```
 sudo chmod +x odoo_install.sh
 ```
@@ -29,3 +29,8 @@ sudo chmod +x odoo_install.sh
 ```
 sudo ./odoo_install.sh
 ```
+##### 5. Web server as proxy
+```
+Configure NGINX "default" file
+sudo nano /etc/nginx/sites-available/default
+Data to be added can be pick-up from file "ConfigDataNGNIX"
