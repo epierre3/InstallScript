@@ -1,7 +1,8 @@
 #!/bin/bash
 ################################################################################
 # Script for installing Odoo on Ubuntu 14.04, 15.04, 16.04 and 18.04 (could be used for other version too)
-# Author: Ewald Pierre
+# Author: Yenthe Van Ginneken
+# Modified by: Ewald Pierre
 #-------------------------------------------------------------------------------
 # It can install multiple Odoo instances
 # in one Ubuntu because of the different xmlrpc_ports
