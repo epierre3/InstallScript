@@ -50,8 +50,7 @@ sudo apt-get install software-properties-common
 sudo add-apt-repository universe
 # libpng12-0 dependency for wkhtmltopdf
 sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 
 #--------------------------------------------------
 # Install PostgreSQL Server
