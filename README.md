@@ -29,8 +29,21 @@ sudo chmod +x odoo_install.sh
 ```
 sudo ./odoo_install.sh
 ```
+
+## Optional
+
 ##### 5. Web server as proxy
 ```
+Download script
+sudo wget https://raw.githubusercontent.com/epierre3/InstallScript/12.0/nginx_install.sh
+
+Make the script executable
+sudo chmod +x nginx_install.sh
+
+Execute the script:
+sudo ./nginx_install.sh
+
+...
 Configure NGINX "default" file
 sudo nano /etc/nginx/sites-available/default
 Data to be added can be pick-up from file "ConfigDataNGNIX"
