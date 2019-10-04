@@ -53,3 +53,14 @@ sudo chmod +x certbot_install.sh
 
 Execute the script:
 sudo ./certbot_install.sh
+```
+##### 7. Set-Up and Enable firewall:
+```
+Download script
+sudo wget https://raw.githubusercontent.com/epierre3/InstallScript/12.0/firewall_install.sh
+
+Make the script executable
+sudo chmod +x firewall_install.sh
+
+Execute the script:
+sudo ./firewall_install.sh
