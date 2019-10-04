@@ -75,6 +75,18 @@ echo -e "\n---- Installing nodeJS NPM and rtlcss for LTR support ----"
 sudo apt-get install nodejs npm
 sudo npm install -g rtlcss
 
+echo -e "\n---- Installing pysftp, required for Auto-Backup ----"
+sudo apt install pysftp
+
+echo -e "\n---- Installing python3-xlsxwriter, required for some modules ----"
+sudo apt install python3-xlsxwriter
+
+echo -e "\n---- Installing python3-xlrd, required for some modules ----"
+sudo apt install python3-xlrd
+
+echo -e "\n---- Installing python library unidecode, required for some modules ----"
+sudo apt install python3-unidecode
+
 #--------------------------------------------------
 # Install Wkhtmltopdf if needed
 #--------------------------------------------------
