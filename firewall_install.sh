@@ -9,4 +9,7 @@ ufw allow http
 ufw allow https
 
 # Enable Firewall
-ufw enable -y
+ufw enable
+
+#Check active protocols
+ufw status
