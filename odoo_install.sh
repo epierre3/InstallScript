@@ -4,7 +4,7 @@
 # Author: Yenthe Van Ginneken
 # Modified by: Ewald Pierre
 #-------------------------------------------------------------------------------
-# It can install multiple Odoo instances
+# This script will install Odoo on your Ubuntu 18.04 server. It can install multiple Odoo instances
 # in one Ubuntu because of the different xmlrpc_ports
 #-------------------------------------------------------------------------------
 # Make a new file:
@@ -50,7 +50,7 @@ sudo apt-get install software-properties-common -y
 # universe package is for Ubuntu 18.x
 sudo add-apt-repository universe
 # libpng12-0 dependency for wkhtmltopdf
-sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
+sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ bionic main"
 sudo apt-get update && sudo apt-get upgrade -y
 
 #--------------------------------------------------
