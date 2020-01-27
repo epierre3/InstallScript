@@ -83,6 +83,7 @@ if [ $INSTALL_WKHTMLTOPDF = "True" ]; then
   else
       _url=$WKHTMLTOX_X32
   fi
+  sudo apt-get install gdebi
   sudo wget $_url
   sudo gdebi --n `basename $_url`
   sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
