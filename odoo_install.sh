@@ -32,7 +32,7 @@ INSTALL_NGINX="False"
 # Set the superadmin password - if GENERATE_RANDOM_PASSWORD is set to "True" we will automatically generate a random password, otherwise we use this one
 OE_SUPERADMIN="admin"
 # Set to "True" to generate a random password, "False" to use the variable in OE_SUPERADMIN
-GENERATE_RANDOM_PASSWORD="True"
+GENERATE_RANDOM_PASSWORD="False"
 OE_CONFIG="${OE_USER}-server"
 # Set the website name
 WEBSITE_NAME="_"
@@ -66,8 +66,8 @@ echo -e "\n---- Install PostgreSQL Server ----"
 sudo apt-get install postgresql postgresql-server-dev-all -y
 
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
-# sudo su - postgres -c "createuser -s $OE_USER" 2> /dev || true
-sudo su - postgres -c "createuser -s $OE_USER" /dev
+sudo su - postgres -c "createuser -s $OE_USER" 2> /dev || true
+# sudo su - postgres -c "createuser -s $OE_USER" /dev
 
 #--------------------------------------------------
 # Install Dependencies
