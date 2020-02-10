@@ -66,8 +66,7 @@ echo -e "\n---- Install PostgreSQL Server ----"
 sudo apt-get install postgresql postgresql-server-dev-all -y
 
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
-sudo su - postgres -c "createuser -s $OE_USER" 2> /dev || true
-# sudo su - postgres -c "createuser -s $OE_USER" /dev
+sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
 
 #--------------------------------------------------
 # Install Dependencies
