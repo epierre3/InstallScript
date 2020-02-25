@@ -2,7 +2,7 @@
 ################################################################################
 # Script for installing Odoo on Ubuntu 18.04
 # Author: Yenthe Van Ginneken
-# Modified by: Onestein
+# Modified by: E Pierre
 #-------------------------------------------------------------------------------
 # This script will install Odoo on your Ubuntu 18.04 server. It can install multiple Odoo instances
 # in one Ubuntu because of the different xmlrpc_ports
@@ -18,7 +18,7 @@ sudo export LC_ALL="en_US.UTF-8"
 sudo export LC_CTYPE="en_US.UTF-8"
 sudo dpkg-reconfigure locales
 ################################################################################
-read -p "Press [Enter] key to start Odoo 13 installation..."
+# read -p "Press [Enter] key to start Odoo 13 installation..."
 OE_USER="odoo"
 OE_HOME="/opt/$OE_USER"
 OE_HOME_EXT="/opt/$OE_USER/${OE_USER}-server"
@@ -57,7 +57,7 @@ WKHTMLTOX_X32=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.
 #--------------------------------------------------
 # Update Server
 #--------------------------------------------------
-read -p "Press [Enter] key to start Server Update (apt)..."
+# read -p "Press [Enter] key to start Server Update (apt)..."
 echo -e "\n---- Update Server ----"
 sudo apt update -y
 sudo apt full-upgrade -y
@@ -65,7 +65,7 @@ sudo apt full-upgrade -y
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
-read -p "Press [Enter] key to start PostgreSQL install..."
+# read -p "Press [Enter] key to start PostgreSQL install..."
 echo -e "\n---- Install PostgreSQL Server ----"
 sudo apt install postgresql -y
 
@@ -75,7 +75,7 @@ sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
 #--------------------------------------------------
 # Install Dependencies
 #--------------------------------------------------
-read -p "Press [Enter] key to start Install Dependencies..."
+# read -p "Press [Enter] key to start Install Dependencies..."
 echo -e "\n--- Installing Python 3 + pip3 --"
 sudo apt install python3 python3-pip -y
 
@@ -110,7 +110,7 @@ else
   echo "Wkhtmltopdf isn't installed due to the choice of the user!"
 fi
 #---------------------------------------------------
-read -p "Press [Enter] key to Create system user..."
+# read -p "Press [Enter] key to Create system user..."
 echo -e "\n---- Create ODOO system user ----"
 sudo adduser --system --quiet --shell=/bin/bash --home=$OE_HOME --gecos 'ODOO' --group $OE_USER
 #The user should also be added to the sudo'ers group.
@@ -123,7 +123,7 @@ sudo chown $OE_USER:$OE_USER /var/log/$OE_USER
 #--------------------------------------------------
 # Install ODOO
 #--------------------------------------------------
-read -p "Press [Enter] key to continue Odoo server installation ..."
+# read -p "Press [Enter] key to continue Odoo server installation ..."
 echo -e "\n==== Installing ODOO Server ===="
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/odoo/odoo $OE_HOME_EXT/
 
@@ -151,7 +151,7 @@ if [ $IS_ENTERPRISE = "True" ]; then
     sudo npm install -g less
     sudo npm install -g less-plugin-clean-css
 fi
-read -p "Press [Enter] key to continue with custom modules..."
+# read -p "Press [Enter] key to continue with custom modules..."
 echo -e "\n---- Create custom module directory ----"
 sudo su $OE_USER -c "mkdir $OE_HOME/custom"
 sudo su $OE_USER -c "mkdir $OE_HOME/custom/addons"
@@ -162,7 +162,7 @@ sudo chown -R $OE_USER:$OE_USER $OE_HOME/*
 echo -e "* Create server config file"
 
 sudo touch /etc/${OE_CONFIG}.conf
-read -p "Press [Enter] key to create config file..."
+# read -p "Press [Enter] key to create config file..."
 echo -e "* Creating server config file"
 sudo su root -c "printf '[options] \n; This is the password that allows database operations:\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'admin_passwd = ${OE_SUPERADMIN}\n' >> /etc/${OE_CONFIG}.conf"
@@ -181,7 +181,7 @@ fi
 sudo chown $OE_USER:$OE_USER /etc/${OE_CONFIG}.conf
 sudo chmod 640 /etc/${OE_CONFIG}.conf
 
-read -p "Press [Enter] key to create startup..."
+# read -p "Press [Enter] key to create startup..."
 echo -e "* Create startup file"
 sudo su root -c "echo '#!/bin/sh' >> $OE_HOME_EXT/start.sh"
 sudo su root -c "echo 'sudo -u $OE_USER $OE_HOME_EXT/odoo-bin --config=/etc/${OE_CONFIG}.conf' >> $OE_HOME_EXT/start.sh"
@@ -284,7 +284,7 @@ echo "-----------------------------------------------------------"
 if [[ $INSTALL_NGINX == "True" ]]; then
     echo -e "\n==== Installing NGINX ===="
 
-    sudo wget https://raw.githubusercontent.com/onesteinbv/InstallScript/13_os_18.04/nginx
+    sudo wget https://raw.githubusercontent.com/epierre3/InstallScript/blob/13.0/nginx
 
     sudo apt install nginx
 
@@ -292,6 +292,7 @@ if [[ $INSTALL_NGINX == "True" ]]; then
     sudo apt install software-properties-common -y
     sudo add-apt-repository universe -y
     sudo add-apt-repository ppa:certbot/certbot -y
+
     sudo apt update
 
     sudo apt install certbot python-certbot-nginx
